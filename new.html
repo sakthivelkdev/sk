@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+}
+
+/* SLIDES */
+.slide {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: #b68b2d;
+    padding: 20px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay for readability */
+.slide::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.75);
+    top: 0;
+    left: 0;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    animation: fadeIn 2s ease;
+}
+
+/* Typography */
+h1 { font-size: 2.8em; margin: 10px; }
+h2 { font-size: 2em; }
+p { font-size: 1.2em; margin: 8px 0; }
+
+.gold {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Statue */
+.statue img {
+    width: 160px;
+    margin-top: 20px;
+    animation: float 3s infinite;
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Slide 1 - Invite -->
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529636798458-92182e662485')">
+    <div class="slide-content">
+        <p style="color: blue;">With the Blessings of</p>
+        <p style="color:green;">The families cordially invite you to celebrate the wedding</p>
+    </div>
+</div>
+
+<!-- Slide 2 - Names -->
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552')">
+    <div class="slide-content">
+    
+        <h1 style="color: rgb(30, 171, 196);">Praveen</h1>
+            <h2>weds</h2>
+        <h1 style="color: rgb(30, 171, 196);">Rajalakshmi</h1>
+        
+    </div>
+</div>
+
+<!-- Slide 3 - Muhurtham -->
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d')">
+    <div class="slide-content">
+        <p class="gold" style="color: blue;">Muhurtham</p>
+        <p style="color: rgb(0, 255, 106);">9:00 AM – 10:30 AM</p>
+        <p style="color: rgb(149, 226, 5);">
+        Marundheeswarar Temple,<br>
+        Thiruvanmiyur, Chennai
+        </p>
+    </div>
+</div>
+
+<!-- Slide 4 - Welcome -->
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1606800052052-a08af7148866')">
+    <div class="slide-content">
+        <h2 style="color: blue;">Welcome to Our Wedding 💐</h2>
+        <p style="color: red;">We warmly invite you to share in our joy</p>
+        <p style="color: red;">and celebrate this beautiful occasion with us</p>
+    </div>
+</div>
+
+<!-- Slide 5 - Reception -->
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf')">
+    <div class="slide-content">
+        <p class="gold" style="color: blue;">Reception</p>
+        <p style="color: yellow;">20 April, Monday</p>
+        <p style="color: yellow;">6:00 PM – 7:00 PM</p>
+        <p style="color: yellow;">
+        Sekaran Kalyana Mandapam<br>
+        Thiruvanmiyur, Chennai
+        </p>
+
+        <div class="statue">
+            <p style="color: red;">We Await Your Presence 🙏</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/3534/3534063.png">
+        </div>
+    </div>
+</div>
+
+<script>
+// Auto slide like reel
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+
+function showSlide(index) {
+    slides[index].scrollIntoView({ behavior: "smooth" });
+}
+
+setInterval(() => {
+    current++;
+    if (current >= slides.length) current = 0;
+    showSlide(current);
+}, 4000);
+</script>
+
+</body>
+</html>
